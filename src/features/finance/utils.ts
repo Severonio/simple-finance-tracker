@@ -3,14 +3,13 @@ import type { Account, Currency, FinanceDb, Id, Transaction } from "@/features/f
 export const FIN_STORAGE_KEY = "fin_v4" as const
 
 export function currencySymbol(curr: Currency): string {
-  return (
-    {
-      UAH: "₴",
-      USD: "$",
-      EUR: "€",
-      PLN: "zł",
-    }[curr] ?? curr
-  )
+  const symbols: Record<Currency, string> = {
+    UAH: "₴",
+    USD: "$",
+    EUR: "€",
+    PLN: "zł",
+  };
+  return symbols[curr];
 }
 
 export function formatMoney(

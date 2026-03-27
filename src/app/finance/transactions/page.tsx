@@ -540,7 +540,7 @@ export default function FinanceTransactionsPage() {
 
           <div>
             <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/70">
-              Категорія <span className="font-normal normal-case opacity-70">(необов'язково)</span>
+              Категорія <span className="font-normal normal-case opacity-70">(необов&apos;язково)</span>
             </label>
             <select className="h-10 w-full rounded-md border bg-transparent px-3 text-sm" value={txForm.categoryId} onChange={(e) => setTxForm((s) => ({ ...s, categoryId: e.target.value }))}>
               <option value="">— Без категорії —</option>
