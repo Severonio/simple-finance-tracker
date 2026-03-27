@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Ваші базові змінні (з oldSite) */
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --border-ui: #e8e4dc;
+    --border-hover: #c8c4bb;
+    --text: #1c1917;
+    --muted: #78716c;
+    --faint: #a9a29c;
+
+    --accent-ui: #dc8f3d;
+    --accent-soft: #fdf3e3;
+
+    --green: #16a34a;
+    --green-soft: #dcfce7;
+    --red: #dc2626;
+    --red-soft: #fee2e2;
+    --amber: #d97706;
+    --amber-soft: #fef3c7;
+    --blue: #2563eb;
+    --blue-soft: #eff6ff;
+    --purple: #7c3aed;
+    --purple-soft: #ede9fe;
+    --teal: #0d9488;
+    --teal-soft: #ccfbf1;
+
+    --sidebar-bg: #1c1917;
+    --sidebar-txt: #a8a29e;
+
+    --radius: 14px;
+
+    /* Маппінг на shadcn/ui токени (Tailwind використовує hsl(var(--...))) */
+    --background: 40 28% 95%; /* близько до --bg */
+    --foreground: 24 10% 10%; /* близько до --text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+
+    --primary: 28 72% 55%; /* близько до --accent-ui */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 20% 93%;
+    --secondary-foreground: 24 10% 10%;
+
+    --muted-foreground: 24 6% 45%; /* близько до --muted */
+
+    --accent: 32 85% 94%; /* близько до --accent-soft */
+    --accent-foreground: 24 10% 10%;
+
+    --destructive: 0 74% 52%; /* близько до --red */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 19% 89%; /* близько до --border-ui */
+    --input: 35 19% 89%;
+    --ring: 28 72% 55%;
+  }
+
+  .dark {
+    /* Dark variant у вашій стилістиці */
+    --bg: #141210;
+    --surface: #1c1917;
+    --border-ui: #2a2623;
+    --border-hover: #3a342f;
+    --text: #fafaf9;
+    --muted: #a8a29e;
+    --faint: #78716c;
+
+    --accent-ui: #dc8f3d;
+    --accent-soft: rgba(220, 143, 61, 0.14);
+
+    --sidebar-bg: #0f0d0c;
+    --sidebar-txt: #a8a29e;
+
+    /* shadcn/ui токени (hsl) */
+    --background: 24 10% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 24 10% 11%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 24 10% 11%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 28 72% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 24 7% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted-foreground: 24 7% 70%;
+
+    --accent: 24 7% 16%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 74% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 24 7% 18%;
+    --input: 24 7% 18%;
+    --ring: 28 72% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    @apply antialiased;
+  }
+}

@@ -1,0 +1,35 @@
+You are working in a Next.js 15 (App Router) project: `my-finance-tracker`.
+
+## Coding style
+- Prefer TypeScript everywhere. No `any`. Keep types close to the feature folder (`src/features/...`).
+- Use React Server Components by default. Mark files `"use client"` only when needed (state, effects, DOM APIs, charts).
+- Keep components small and composable. Avoid giant files.
+- Tailwind first. Avoid custom CSS unless it is a reusable token/theme rule.
+- Use the project design tokens from `src/styles/globals.css`:
+  - Prefer Tailwind/shadcn tokens (`bg-background`, `text-foreground`, `bg-card`, `border-border`, etc.) for general UI.
+  - For “finance legacy style” areas, you may reference the user tokens (`--bg`, `--surface`, `--accent-ui`, etc.) but do not introduce new random colors.
+
+## Architecture
+- Feature-first structure:
+  - `src/features/finance/*` holds all finance logic, store, types, selectors, UI building blocks.
+  - `src/app/finance/*` contains route pages and layout only (composition + data wiring).
+- State management:
+  - Use Zustand stores inside feature folders (e.g. `src/features/finance/store.ts`).
+  - Persist only what is needed. Prefer `zustand/middleware` `persist`.
+  - Do not mutate state directly; create new objects (use `structuredClone` when convenient).
+
+## UI conventions
+- Use shadcn/ui primitives when possible (Button, DropdownMenu, Dialog, etc.).
+- Dark mode must work. Theme switching uses `next-themes` and a `.dark` class.
+- Keep copy/labels in Ukrainian unless the existing UI explicitly uses English.
+
+## Data & formatting
+- Dates are stored as ISO `YYYY-MM-DD`.
+- Money formatting should use `uk-UA` locale and currency symbols consistent with the legacy app.
+- Transfers are modeled as a pair of transactions (`income` + `expense`) linked by `transferId`, but rendered as a single row in the UI.
+
+## Quality bar
+- After edits, ensure `next lint` would pass.
+- No dead code or unused imports.
+- Prefer accessibility: proper buttons/labels, keyboard close for dialogs, focus handling.
+
